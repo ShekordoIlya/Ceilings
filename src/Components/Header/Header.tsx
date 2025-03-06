@@ -1,4 +1,11 @@
+import { useDispatch, useSelector } from "react-redux";
+import { setActive } from "../../Redux/Slices/contactSlice";
+import { setActiveLamp } from "../../Redux/Slices/lampSlice";
+
 const Header = () => {
+  const dispatch = useDispatch();
+  const { isActiveContacts } = useSelector((state) => state.contactStore);
+  const { isActiveLamp } = useSelector((state) => state.lampStore);
   return (
     <>
       <header className="w-screen h-auto bg-black opacity-[75%]">
@@ -18,7 +25,8 @@ const Header = () => {
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
               <button
                 onClick={(e) => {
-                  document.querySelector(".myBtn").disabled = false;
+                  e.stopPropagation();
+                  dispatch(setActiveLamp(!isActiveLamp));
                 }}
               >
                 Светильники
@@ -26,11 +34,10 @@ const Header = () => {
             </li>
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
               <button
-                onClick={(e) => {
-                  e.target.disabled = !false;
-                  console.log(e.target.disabled);
+                onClick={() => {
+                  dispatch(setActive(!isActiveContacts));
+                  console.log(isActiveContacts);
                 }}
-                className="myBtn"
               >
                 Контакты
               </button>

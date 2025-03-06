@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface IContacts {
+  isActiveContacts: boolean;
   telNumber: number;
   mail: string;
   telegram: string;
@@ -8,6 +9,7 @@ interface IContacts {
 }
 
 const initialState: IContacts = {
+  isActiveContacts: false,
   telNumber: 0,
   mail: "",
   telegram: "",
@@ -17,8 +19,12 @@ const initialState: IContacts = {
 const contactSlice = createSlice({
   name: "contacts",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    setActive: (state, action) => {
+      state.isActiveContacts = action.payload;
+    },
+  },
 });
 
-export const {} = contactSlice.actions;
+export const { setActive } = contactSlice.actions;
 export default contactSlice.reducer;
