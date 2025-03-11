@@ -44,3 +44,7 @@
 .mainOpacity {
   opacity: 99%;
 }
+
+.swiper-wrapper {
+  display: flex;
+}

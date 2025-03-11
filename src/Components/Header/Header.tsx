@@ -1,11 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setActive } from "../../Redux/Slices/contactSlice";
-import { setActiveLamp } from "../../Redux/Slices/lampSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const { isActiveContacts } = useSelector((state) => state.contactStore);
-  const { isActiveLamp } = useSelector((state) => state.lampStore);
+  const navigate = useNavigate();
   return (
     <>
       <header className="w-screen h-auto bg-black opacity-[75%]">
@@ -16,45 +12,31 @@ const Header = () => {
             </a>
           </div>
           <ul className="text-white flex justify-around lettersBtn items-center w-[54%]">
-            <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
+            <li
+              onClick={() => {
+                navigate("/works");
+              }}
+              className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]"
+            >
               <button>Наши работы</button>
             </li>
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
               <button>Виды потолков</button>
             </li>
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  dispatch(setActiveLamp(!isActiveLamp));
-                }}
-              >
-                Светильники
-              </button>
+              <button>Светильники</button>
             </li>
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
-              <button
-                onClick={() => {
-                  dispatch(setActive(!isActiveContacts));
-                  console.log(isActiveContacts);
-                }}
-              >
-                Контакты
-              </button>
+              <button>Контакты</button>
             </li>
           </ul>
-          <div className="text-black m-auto rounded-xl text-xl font-medium hover:text-white shadowContainer">
-            <button className="bg-yellow-400 rounded-xl lettersBtn p-5 hover:bg-red-600 duration-[400ms] hidden">
+          <div className="text-black m-auto rounded-xl text-xl font-medium hover:text-white shadowContainer opacity-[99%] hover:animate-pulse">
+            <button className="bg-yellow-400 rounded-xl lettersBtn p-5 hover:bg-red-600 duration-[400ms] ">
               ЗАКАЗАТЬ ЗВОНОК
             </button>
           </div>
         </div>
       </header>
-      <div className="text-black m-auto rounded-xl text-xl font-medium hover:text-white shadowContainer absolute left-[1157px] bottom-[629px] hover:animate-pulse">
-        <button className="bg-yellow-400 rounded-xl lettersBtn p-5 hover:bg-red-600 duration-[400ms]">
-          ЗАКАЗАТЬ ЗВОНОК
-        </button>
-      </div>
     </>
   );
 };
