@@ -45,6 +45,6 @@
   opacity: 99%;
 }
 
-.swiper-wrapper {
-  display: flex;
+.swiper-button-next {
+  color: #080b04;
 }
