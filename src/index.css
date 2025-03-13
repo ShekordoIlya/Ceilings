@@ -46,5 +46,17 @@
 }
 
 .swiper-button-next {
-  color: #080b04;
+  color: #84db13 !important;
+}
+
+.swiper-button-prev {
+  color: #84db13 !important;
+}
+
+.swiper-slide img {
+  border-radius: 50px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #84db13 !important;
 }
