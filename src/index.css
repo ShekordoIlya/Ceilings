@@ -60,3 +60,7 @@
 .swiper-pagination-bullet-active {
   background-color: #84db13 !important;
 }
+
+.tabsContainer {
+  border-right: 1px solid white;
+}

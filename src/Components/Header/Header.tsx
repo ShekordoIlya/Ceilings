@@ -20,7 +20,12 @@ const Header = () => {
             >
               <button>Наши работы</button>
             </li>
-            <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
+            <li
+              onClick={() => {
+                navigate("/ceilings");
+              }}
+              className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]"
+            >
               <button>Виды потолков</button>
             </li>
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
