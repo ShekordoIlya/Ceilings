@@ -29,7 +29,13 @@ const Header = () => {
               <button>Виды потолков</button>
             </li>
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
-              <button>Светильники</button>
+              <button
+                onClick={() => {
+                  navigate("/lighting");
+                }}
+              >
+                Светильники
+              </button>
             </li>
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
               <button>Контакты</button>
