@@ -38,7 +38,13 @@ const Header = () => {
               </button>
             </li>
             <li className="h-full content-center hover:cursor-pointer hover:scale-150 duration-[300ms]">
-              <button>Контакты</button>
+              <button
+                onClick={() => {
+                  navigate("/contacts");
+                }}
+              >
+                Контакты
+              </button>
             </li>
           </ul>
           <div className="text-black m-auto rounded-xl text-xl font-medium hover:text-white shadowContainer opacity-[99%] hover:animate-pulse">

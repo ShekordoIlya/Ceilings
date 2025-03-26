@@ -1,8 +1,8 @@
-import { useDispatch } from "react-redux";
 import { dataLighting } from "../../data.js";
+import { useNavigate } from "react-router-dom";
 
 const Lighting = () => {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const lightingTypes = () => {
     return (
       <picture className="flex justify-center gap-5 flex-wrap mainOpacity flex-col max-h-[50vh] items-center">
@@ -27,7 +27,7 @@ const Lighting = () => {
         За более подробной и расширенной информацией обращайтесь к{" "}
         <button
           onClick={() => {
-            dispatch("/contacts");
+            navigate("/contacts");
           }}
           className="text-yellow-400 mainOpacity text-2xl hover:scale-105 duration-[400ms] hover:cursor-pointer transform-gpu"
         >
